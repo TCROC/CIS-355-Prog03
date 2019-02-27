@@ -10,8 +10,8 @@ class Customer {
     private $emailError = null;
     private $mobileError = null;
     private $title = "Customer";
-    private $tableName = "customer";
-    
+    private $tableName = "customers";
+
     function create_record() { // display "create" form
         $this->generate_html_top (1);
         $this->generate_form_group("name", $this->nameError, $this->name, "autofocus");
@@ -148,6 +148,9 @@ class Customer {
                     ";
         echo "
                 <meta charset='UTF-8'>
+                <script src=\"https://code.jquery.com/jquery-3.3.1.min.js\"
+                integrity=\"sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=\"
+                crossorigin=\"anonymous\"></script>
                 <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css' rel='stylesheet'>
                 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js'></script>
                 <style>label {width: 5em;}</style>
@@ -250,6 +253,9 @@ class Customer {
                     ";
         echo "
                 <meta charset='UTF-8'>
+                <script src=\"https://code.jquery.com/jquery-3.3.1.min.js\"
+                integrity=\"sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=\"
+                crossorigin=\"anonymous\"></script>
                 <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css' rel='stylesheet'>
                 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js'></script>
                     ";  
