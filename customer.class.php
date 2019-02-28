@@ -264,6 +264,7 @@ class Customer {
             </head>
             <body>
                 <a href='https://github.com/cis355/PhpProject1' target='_blank'>Github</a><br />
+                <a href='Diagrams/CustomersFlow.pdf' target='_blank'>Flow Chart</a><br />
                 <div class='container'>
                     <p class='row'>
                         <h3>$this->title" . "s" . "</h3>
