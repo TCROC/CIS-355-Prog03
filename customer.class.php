@@ -73,7 +73,7 @@ class Customer {
             $q = $pdo->prepare($sql);
             $q->execute(array($this->name,$this->email,$this->mobile));
             Database::disconnect();
-            header("Location: $this->tableName.php"); // go back to "list"
+            header("Location: $this->urlName.php"); // go back to "list"
         }
         else {
             // if not valid data, go back to "create" form, with errors
@@ -105,7 +105,7 @@ class Customer {
             $q = $pdo->prepare($sql);
             $q->execute(array($this->name,$this->email,$this->mobile,$this->id));
             Database::disconnect();
-            header("Location: $this->tableName.php");
+            header("Location: $this->urlName.php");
         }
         else {
             $this->noerrors = false;
@@ -120,7 +120,7 @@ class Customer {
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
-        header("Location: $this->tableName.php");
+        header("Location: $this->urlName.php");
     } // end function delete_db_record()
     
     private function generate_html_top ($fun, $id=null) {
@@ -165,7 +165,7 @@ class Customer {
                         <p class='row'>
                             <h3>$funWord a $this->title</h3>
                         </p>
-                        <form class='form-horizontal' action='$this->tableName.php?fun=$funNext' method='post'>                        
+                        <form class='form-horizontal' action='$this->urlName.php?fun=$funNext' method='post'>                        
                     ";
     } // end function generate_html_top()
     
