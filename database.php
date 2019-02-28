@@ -8,7 +8,6 @@ class Database
 	private static $dbUsername = 'root';
 	private static $dbUserPassword = '';
 
-
 	/*
 	// csis.svsu.edu
 	private static $dbName = 'tclange355wi19' ;

@@ -11,7 +11,7 @@ class Customer {
     private $mobileError = null;
     private $title = "Customer";
     private $tableName = "customers";
-    private $className = __CLASS__;
+    private $urlName =  "customer";
 
     function create_record() { // display "create" form
         $this->generate_html_top (1);
@@ -191,7 +191,7 @@ class Customer {
         echo " 
                             <div class='form-actions'>
                                 $funButton
-                                <a class='btn btn-secondary' href='$this->className.php'>Back</a>
+                                <a class='btn btn-secondary' href='$this->urlName.php'>Back</a>
                             </div>
                         </form>
                     </div>
@@ -269,7 +269,7 @@ class Customer {
                         <h3>$this->title" . "s" . "</h3>
                     </p>
                     <p>
-                        <a href='$this->className.php?fun=display_create_form' class='btn btn-success'>Create</a>
+                        <a href='$this->urlName.php?fun=display_create_form' class='btn btn-success'>Create</a>
                     </p>
                     <div class='row'>
                         <table class='table table-striped table-bordered'>
@@ -291,11 +291,11 @@ class Customer {
             echo "<td>". $row["email"] . "</td>";
             echo "<td>". $row["mobile"] . "</td>";
             echo "<td width=250>";
-            echo "<a class='btn btn-info' href='$this->className.php?fun=display_read_form&id=".$row["id"]."'>Read</a>";
+            echo "<a class='btn btn-info' href='$this->urlName.php?fun=display_read_form&id=".$row["id"]."'>Read</a>";
             echo "&nbsp;";
-            echo "<a class='btn btn-warning' href='$this->className.php?fun=display_update_form&id=".$row["id"]."'>Update</a>";
+            echo "<a class='btn btn-warning' href='$this->urlName.php?fun=display_update_form&id=".$row["id"]."'>Update</a>";
             echo "&nbsp;";
-            echo "<a class='btn btn-danger' href='$this->className.php?fun=display_delete_form&id=".$row["id"]."'>Delete</a>";
+            echo "<a class='btn btn-danger' href='$this->urlName.php?fun=display_delete_form&id=".$row["id"]."'>Delete</a>";
             echo "</td>";
             echo "</tr>";
         }
