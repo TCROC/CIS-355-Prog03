@@ -263,7 +263,8 @@ class Customer {
         echo "
             </head>
             <body>
-                <a href='https://github.com/cis355/PhpProject1' target='_blank'>Github</a><br />
+                <a href='https://github.com/TCROC/CIS-355-Prog02' target='_blank'>GitHub</a><br />
+                <a href='Diagrams/CustomersFlow.pdf' target='_blank'>Flow Chart</a><br />
                 <div class='container'>
                     <p class='row'>
                         <h3>$this->title" . "s" . "</h3>
