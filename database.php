@@ -1,6 +1,7 @@
 <?php
 class Database 
 {
+
 	/*
 	// localhost
 	private static $dbName = 'projects' ;
@@ -14,6 +15,7 @@ class Database
 	private static $dbHost = '10.8.30.49' ;
 	private static $dbUsername = 'tclange355wi19';
 	private static $dbUserPassword = 'SvsuPassword';
+
 	
 	private static $cont  = null;
 	

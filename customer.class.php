@@ -11,6 +11,7 @@ class Customer {
     private $mobileError = null;
     private $title = "Customer";
     private $tableName = "customers";
+    private $urlName =  "customer";
 
     function create_record() { // display "create" form
         $this->generate_html_top (1);
@@ -72,7 +73,7 @@ class Customer {
             $q = $pdo->prepare($sql);
             $q->execute(array($this->name,$this->email,$this->mobile));
             Database::disconnect();
-            header("Location: $this->tableName.php"); // go back to "list"
+            header("Location: $this->urlName.php"); // go back to "list"
         }
         else {
             // if not valid data, go back to "create" form, with errors
@@ -104,7 +105,7 @@ class Customer {
             $q = $pdo->prepare($sql);
             $q->execute(array($this->name,$this->email,$this->mobile,$this->id));
             Database::disconnect();
-            header("Location: $this->tableName.php");
+            header("Location: $this->urlName.php");
         }
         else {
             $this->noerrors = false;
@@ -119,7 +120,7 @@ class Customer {
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
-        header("Location: $this->tableName.php");
+        header("Location: $this->urlName.php");
     } // end function delete_db_record()
     
     private function generate_html_top ($fun, $id=null) {
@@ -164,7 +165,7 @@ class Customer {
                         <p class='row'>
                             <h3>$funWord a $this->title</h3>
                         </p>
-                        <form class='form-horizontal' action='$this->tableName.php?fun=$funNext' method='post'>                        
+                        <form class='form-horizontal' action='$this->urlName.php?fun=$funNext' method='post'>                        
                     ";
     } // end function generate_html_top()
     
@@ -190,7 +191,7 @@ class Customer {
         echo " 
                             <div class='form-actions'>
                                 $funButton
-                                <a class='btn btn-secondary' href='$this->tableName.php'>Back</a>
+                                <a class='btn btn-secondary' href='$this->urlName.php'>Back</a>
                             </div>
                         </form>
                     </div>
@@ -244,7 +245,7 @@ class Customer {
         }
         return $valid;
     } // end function fieldsAllValid() 
-    
+
     function list_records() {
         echo "<!DOCTYPE html>
         <html>
@@ -268,7 +269,7 @@ class Customer {
                         <h3>$this->title" . "s" . "</h3>
                     </p>
                     <p>
-                        <a href='$this->tableName.php?fun=display_create_form' class='btn btn-success'>Create</a>
+                        <a href='$this->urlName.php?fun=display_create_form' class='btn btn-success'>Create</a>
                     </p>
                     <div class='row'>
                         <table class='table table-striped table-bordered'>
@@ -290,11 +291,11 @@ class Customer {
             echo "<td>". $row["email"] . "</td>";
             echo "<td>". $row["mobile"] . "</td>";
             echo "<td width=250>";
-            echo "<a class='btn btn-info' href='$this->tableName.php?fun=display_read_form&id=".$row["id"]."'>Read</a>";
+            echo "<a class='btn btn-info' href='$this->urlName.php?fun=display_read_form&id=".$row["id"]."'>Read</a>";
             echo "&nbsp;";
-            echo "<a class='btn btn-warning' href='$this->tableName.php?fun=display_update_form&id=".$row["id"]."'>Update</a>";
+            echo "<a class='btn btn-warning' href='$this->urlName.php?fun=display_update_form&id=".$row["id"]."'>Update</a>";
             echo "&nbsp;";
-            echo "<a class='btn btn-danger' href='$this->tableName.php?fun=display_delete_form&id=".$row["id"]."'>Delete</a>";
+            echo "<a class='btn btn-danger' href='$this->urlName.php?fun=display_delete_form&id=".$row["id"]."'>Delete</a>";
             echo "</td>";
             echo "</tr>";
         }
