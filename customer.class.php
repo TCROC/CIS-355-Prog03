@@ -264,7 +264,7 @@ class Customer {
             </head>
             <body>
                 <a href='https://github.com/TCROC/CIS-355-Prog02' target='_blank'>GitHub</a><br />
-                <a href='Diagrams/CustomersFlow.pdf' target='_blank'>Flow Chart</a><br />
+                <a href='Diagrams/CustomersFlow.pdf' target='_blank'>Flow Diagram</a><br />
                 <div class='container'>
                     <p class='row'>
                         <h3>$this->title" . "s" . "</h3>
