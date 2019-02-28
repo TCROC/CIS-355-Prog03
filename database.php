@@ -1,12 +1,19 @@
 <?php
 class Database 
 {
-	// these are not the real passwords
-	// for real passwords, see file in ../database subdirectory
+	/*
+	// localhost
 	private static $dbName = 'projects' ;
 	private static $dbHost = '127.0.0.1' ;
 	private static $dbUsername = 'root';
 	private static $dbUserPassword = '';
+	*/
+
+	// csis.svsu.edu
+	private static $dbName = 'tclange355wi19' ;
+	private static $dbHost = '10.8.30.49' ;
+	private static $dbUsername = 'tclange355wi19';
+	private static $dbUserPassword = 'SvsuPassword';
 	
 	private static $cont  = null;
 	
