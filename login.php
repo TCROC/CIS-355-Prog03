@@ -23,7 +23,7 @@ if ($_POST){
 
         header("Location: customer.php");
     } else
-        header("Location: login.php?errorMessage=Invalid");
+        header("Location: login.php?errorMessage=Invalid Username or Password!");
 }
 ?>
 
@@ -41,11 +41,15 @@ if ($_POST){
 <div class="container">
     <h1>Log In</h1>
     <form class="form-horizontal" action="login.php" method="post">
-        <p style="color: red;"><?php echo($errorMessage); ?></p>
         <input name="username" type="text" placeholder="me@email.com" required>
         <input name="password" type="password" placeholder="password" required>
         <button type="submit" class="btn btn-success">Sign In</button>
         <a href="createAccount.php" class="btn btn-info">Create Account</a>
+        <?php
+        if ($errorMessage) {
+            echo "<p class=\"alert alert-danger\" role=\"alert\">$errorMessage</p>";
+        }
+        ?>
     </form>
 </div>
 </html>
