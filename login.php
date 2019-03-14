@@ -45,7 +45,7 @@ if ($_POST){
         <input name="username" type="text" placeholder="me@email.com" required>
         <input name="password" type="password" placeholder="password" required>
         <button type="submit" class="btn btn-success">Sign In</button>
-        <a href="logout.php">Sign Out</a>
+        <a href="createAccount.php" class="btn btn-info">Create Account</a>
     </form>
 </div>
 </html>
