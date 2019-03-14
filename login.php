@@ -21,7 +21,7 @@ if ($_POST){
     if ($data) {
         $_SESSION["username"] = $username;
 
-        header("Location: success.php");
+        header("Location: customer.php");
     } else
         header("Location: login.php?errorMessage=Invalid");
 }
