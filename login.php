@@ -27,6 +27,17 @@ if ($_POST){
 }
 ?>
 
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <script src=\"https://code.jquery.com/jquery-3.3.1.min.js\"
+            integrity=\"sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=\"
+            crossorigin=\"anonymous\"></script>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css' rel='stylesheet'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js'></script>
+    <style>label {width: 5em;}</style>
+</head>
+
 <h1>Log In</h1>
 <form class="form-horizontal" action="login.php" method="post">
     <p style="color: red;"><?php echo($errorMessage); ?></p>
@@ -35,3 +46,4 @@ if ($_POST){
     <button type="submit" class="btn btn-success">Sign In</button>
     <a href="logout.php">Sign Out</a>
 </form>
+</html>
