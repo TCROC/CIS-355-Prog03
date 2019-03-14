@@ -172,7 +172,7 @@ class Customer {
     private function generate_html_bottom ($fun) {
         switch ($fun) {
             case 1: // create
-                $funButton = "<button type='submit' class='btn btn-success'>Create</button>"; 
+                $funButton = "<button type='submit' class='btn btn-success'>Create</button>";
                 break;
             case 2: // read
                 $funButton = "";
@@ -271,6 +271,7 @@ class Customer {
                     </p>
                     <p>
                         <a href='$this->urlName.php?fun=display_create_form' class='btn btn-success'>Create</a>
+                        <a href='logout.php' class='btn btn-danger'>Logout</a>
                     </p>
                     <div class='row'>
                         <table class='table table-striped table-bordered'>

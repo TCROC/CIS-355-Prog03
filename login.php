@@ -38,12 +38,14 @@ if ($_POST){
     <style>label {width: 5em;}</style>
 </head>
 
-<h1>Log In</h1>
-<form class="form-horizontal" action="login.php" method="post">
-    <p style="color: red;"><?php echo($errorMessage); ?></p>
-    <input name="username" type="text" placeholder="me@email.com" required>
-    <input name="password" type="password" placeholder="password" required>
-    <button type="submit" class="btn btn-success">Sign In</button>
-    <a href="logout.php">Sign Out</a>
-</form>
+<div class="container">
+    <h1>Log In</h1>
+    <form class="form-horizontal" action="login.php" method="post">
+        <p style="color: red;"><?php echo($errorMessage); ?></p>
+        <input name="username" type="text" placeholder="me@email.com" required>
+        <input name="password" type="password" placeholder="password" required>
+        <button type="submit" class="btn btn-success">Sign In</button>
+        <a href="logout.php">Sign Out</a>
+    </form>
+</div>
 </html>
