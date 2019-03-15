@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["username"])){
+    header("Location: login.php");
+}
 
 // include the class that handles database connections
 require "database.php";
