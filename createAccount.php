@@ -32,7 +32,7 @@ if ($_POST){
     if ($data) {
         $_SESSION["username"] = $username;
         header("Location: customer.php");
-    } else // Otherwise, try logging in again.
+    } else // Otherwise, try creating an account in again.
         header("Location: createAccount.php?errorMessage=Something went wrong. Please try again.");
 }
 ?>

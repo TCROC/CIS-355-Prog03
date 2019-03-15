@@ -20,7 +20,7 @@ if ($_POST){
     $q -> execute(array());
     $data = $q->fetch(PDO::FETCH_ASSOC);
 
-    // If we got data back, the username / password existed.
+    // If we got data back, the username / password combination was correct.
     if ($data) {
         $_SESSION["username"] = $username;
 
