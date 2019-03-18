@@ -14,9 +14,8 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
     $sql = "UPDATE customers SET isVerified=true WHERE email=? AND password_hash=?";
     $q = $pdo->prepare($sql);
     $q->execute(array($email, $password));
-    //$verifiedData = $q->fetch(PDO::FETCH_ASSOC);
 
-    // Now try to query that username / password combination to make sure the account was created successfully.
+    // Now try to query that username / password combination to make sure the email was verified successfully.
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "SELECT * FROM customers WHERE email = ? AND password_hash = ? LIMIT 1";
     $q = $pdo->prepare($sql);

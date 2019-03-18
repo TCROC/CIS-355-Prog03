@@ -2,6 +2,8 @@
 session_start();
 require "database.php";
 
+$emailVerificationUrl = "http://localhost:63342/Prog03/verifyEmail.php";
+
 if ($_GET)
     $errorMessage = $_GET["errorMessage"];
 else
@@ -31,7 +33,6 @@ if ($_POST){
     // If we got data back, the account was created successfully. Go to customer.php.
     if ($data) {
         $_SESSION["username"] = $email;
-        header("Location: customer.php");
 
         $to      = $email; // Send email to our user
         $subject = 'Email Verification';
@@ -40,11 +41,12 @@ if ($_POST){
         Thanks for joining!
          
         Please click this link to verify your email:
-        http://localhost:63342/Prog03/verifyEmail.php?email='.$email.'&password='.$password.'';
+        '.$emailVerificationUrl.'?email='.$email.'&password='.$password.'';
 
-        $headers = 'From:noreply@yourwebsite.com' . "\r\n"; // Set from headers
+        $headers = 'From:noreply@customers.com' . "\r\n"; // Set from header
         mail($to, $subject, $message, $headers); // Send our email
 
+        header("Location: customer.php");
     } else // Otherwise, try creating an account in again.
         header("Location: createAccount.php?errorMessage=Something went wrong. Please try again.");
 }
