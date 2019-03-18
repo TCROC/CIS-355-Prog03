@@ -1,8 +1,9 @@
 <?php
+require "database.php";
 
 $verificationMessage = "Verification Failed!";
 
-if (isset($_GET["email"]) && isset($_GET["passwordHash"])) {
+if (isset($_GET["email"]) && isset($_GET["password"])) {
     $email = $_GET['email'];
     $password = $_GET['password'];
 
@@ -13,9 +14,16 @@ if (isset($_GET["email"]) && isset($_GET["passwordHash"])) {
     $sql = "UPDATE customers SET isVerified=true WHERE email=? AND password_hash=?";
     $q = $pdo->prepare($sql);
     $q->execute(array($email, $password));
-    $verifiedData = $q->fetch(PDO::FETCH_ASSOC);
+    //$verifiedData = $q->fetch(PDO::FETCH_ASSOC);
 
-    if ($verifiedData) {
+    // Now try to query that username / password combination to make sure the account was created successfully.
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM customers WHERE email = ? AND password_hash = ? LIMIT 1";
+    $q = $pdo->prepare($sql);
+    $q->execute(array($email,$password));
+    $data = $q->fetch(PDO::FETCH_ASSOC);
+
+    if ($data && $data['isVerified']) {
         $verificationMessage = "Verification Successful!";
     }
 }
