@@ -2,6 +2,8 @@
 session_start();
 require "database.php";
 
+$emailVerificationUrl = "http://localhost:63342/Prog03/verifyEmail.php";
+
 if ($_GET)
     $errorMessage = $_GET["errorMessage"];
 else
@@ -9,7 +11,7 @@ else
 
 if ($_POST){
     // Create an account with the data given from the post.
-    $username = $_POST['name'];
+    $name = $_POST['name'];
     $email = $_POST['email'];
     $mobile = $_POST['mobile'];
     $password = MD5 ($_POST['password']);
@@ -19,7 +21,7 @@ if ($_POST){
     // Add the data to the database.
     $sql = "INSERT INTO customers (name,email,mobile,password_hash) values(?, ?, ?, ?)";
     $q = $pdo -> prepare($sql);
-    $q -> execute(array($username, $email, $mobile, $password));
+    $q -> execute(array($name, $email, $mobile, $password));
 
     // Now try to query that username / password combination to make sure the account was created successfully.
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -30,7 +32,20 @@ if ($_POST){
 
     // If we got data back, the account was created successfully. Go to customer.php.
     if ($data) {
-        $_SESSION["username"] = $username;
+        $_SESSION["username"] = $email;
+
+        $to      = $email; // Send email to our user
+        $subject = 'Email Verification';
+        $message = '
+ 
+        Thanks for joining!
+         
+        Please click this link to verify your email:
+        '.$emailVerificationUrl.'?email='.$email.'&password='.$password.'';
+
+        $headers = 'From:noreply@customers.com' . "\r\n"; // Set from header
+        mail($to, $subject, $message, $headers); // Send our email
+
         header("Location: customer.php");
     } else // Otherwise, try creating an account in again.
         header("Location: createAccount.php?errorMessage=Something went wrong. Please try again.");
